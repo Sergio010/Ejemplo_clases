@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Trabajador{
+	public:
+		Trabajador(int rut,string nombre){ //Constructor de la clase
+			this->rut = rut;
+			this->nombre = nombre; 
+		}
+		~Trabajador(){ // Destructor de la clase
+		}
+		//Metodos get y set
+		int getRut(){
+			return this->rut;
+		}
+		string getNombre(){
+			return this->nombre;
+		}
+		void setRut(int rut){
+			this->rut = rut;
+		}
+		void setNombre(string nombre){
+			this->nombre = nombre;
+		}
+		
+	private:
+		int rut;
+		string nombre;		
+};
+
+
+int main(int argc, char const*argv[]){
+	Trabajador tb(127637212,"Carlos Amarillo");
+	cout<<"Rut: "<<tb.getRut()<<" - Nombre: "<<tb.getNombre()<<"\n";
+	return 0;
+}
