@@ -1,0 +1,22 @@
+//Creador: Sergio Retamal
+
+// Creacion de un metodo que permita recibir dos parametros y retornar su suma en C++.
+
+
+#include<iostream>
+using namespace std;
+ 
+int funcionSumar(int v1,int v2){
+	int suma = v1+v2;
+	return suma;
+}
+
+
+ int main(){
+	int resultado;
+    resultado = funcionSumar(4,5);
+	cout<<"La suma es:";
+	cout<<resultado;
+	
+ }
+ 
