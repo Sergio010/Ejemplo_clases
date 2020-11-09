@@ -1,0 +1,87 @@
+
+#include <iostream>
+
+using namespace std;
+
+void sumar(float numero);			// Paso de argumento por valor/ osea una copia
+void restar(float *numero);			// Paso de argumento por punteros
+void multiplicar(float &numero); 	// Paso de argumento por refrencia
+
+int main(int argc, char const *argv[])
+{
+	
+	// punteros
+	cout<<"|-----------------------------------------------|\n";
+	cout<<" Uso de punteros\n";
+	string fecha = "30.10.2020";
+
+	string *puntFecha = &fecha;  // Solo en la declaracion de un puntero se usa el * para almacenar una direccion
+
+	cout<<" Fecha (valor): "<<fecha<<"\n";
+	cout<<" Fecha (direccion): "<<puntFecha<<"\n";
+
+	*puntFecha = "25.12.2020";		// se modifica el valor de la direccion contenida
+	string nombre = "Rodrigo Hernandez";
+	puntFecha = &nombre;			// se asgina otra direccion de memoria
+
+	cout<<" Nombre (direccion): "<<puntFecha<<"\n";
+	cout<<" Nombre (valor): "<<*puntFecha<<"\n";
+	cout<<" Fecha (valor): "<<fecha<<"\n";
+	
+	puntFecha = NULL;   // Definir puntero nulo, que no almacena ninguna direccion de memoria
+
+	// Paso de argumentos por tres tipos //valor, punteros, refrencias
+	cout<<"|-----------------------------------------------|\n";
+	float numero = 3;
+	cout<<" Valor Original: "<<numero<<"\n";
+	sumar(numero);
+	cout<<" Resultado (paso por valor): "<<numero<<"\n";
+	cout<<"|-----------------------------------------------|\n";
+	float numero2 = 3;
+	cout<<" Valor Original: "<<numero2<<"\n";
+	restar(&numero2);
+	cout<<" Resultado (paso por punteros): "<<numero2<<"\n";
+	cout<<"|-----------------------------------------------|\n";
+	float numero3 = 3;
+	cout<<" Valor Original: "<<numero3<<"\n";
+	multiplicar(numero3);
+	cout<<" Resultado (paso por referencia): "<<numero3<<"\n";
+	cout<<"|-----------------------------------------------|\n";
+
+	int dimension;
+	cout<<" Indique el largo de una vector: ";
+	cin>>dimension;
+
+	int *vector = new int[dimension];  // Una vez solicitada memoria con new
+
+	for (int i = 0; i < dimension; ++i)
+	{
+		cin>>vector[i];
+	}
+	cout<<"vector: [";
+
+	for (int i = 0; i < dimension; ++i)
+	{
+		cout<<" "<<vector[i];
+	}
+	cout<<" ]\n";
+
+	delete [] vector;	// Devolver o liberar la memoria solicitada
+
+	int *valor = new int;		// Para valores unicos
+	delete valor;				// o variables unicas
+
+	return 0;
+}
+
+void sumar(float numero){	// Paso de argumento por valor
+	numero = numero + 10;
+}
+
+void restar(float *numero){		// Paso de argumento por punteros
+	*numero = *numero - 10;
+}
+
+void multiplicar(float &numero){	// Paso de argumento por referencia
+	numero = numero * 10;
+}
