@@ -1,0 +1,53 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Trabajador{
+	public:
+		Trabajador(int rut,string nombre);//Constructor de la clase
+		~Trabajador(); // Destructor de la clase
+		
+		//Interfaz (prototipo) Definimos solamente el prototipo de los metodos y los argumentos
+		int getRut();
+		string getNombre();
+		void setRut(int rut);
+		void setNombre(string nombre);
+
+	private:
+		int rut;
+		string nombre;		
+};
+
+//Implementacion de la interfaz, aca realizamos la implementacion de cada uno de los prototipos de cada metodo:
+
+Trabajador::Trabajador(int rut, string nombre){
+		this->rut = rut;
+		this->nombre = nombre; 
+}
+	
+Trabajador::~Trabajador(){ // Destructor de la clase
+		}
+		
+int Trabajador::getRut(){
+	return this->rut;
+}		
+
+string Trabajador::getNombre(){
+	return this->nombre;
+}		
+
+void Trabajador::setRut(int rut){
+	this->rut = rut;
+}	
+void Trabajador::setNombre(string nombre){
+	this->nombre = nombre;
+}					
+
+
+//Funcion main		
+int main(int argc, char const*argv[]){
+	Trabajador tb(127637212,"Carlos Amarillo");
+	cout<<"Rut: "<<tb.getRut()<<" - Nombre: "<<tb.getNombre()<<"\n";
+	return 0;
+}
